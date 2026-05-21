@@ -7,6 +7,9 @@
 # - placeholder pin.nix has 4 fields (version, sourceRev, sourceHash, npmDepsHash).
 # - the diff check includes pkgs/unsloth-studio-frontend/* since update-version regenerates package.json/package-lock.json.
 # - SKIP_BUILD=1 is passed through to update-version (heavy AI deps don't fit on GH runners).
+# - Some upstream releases ship a broken npm tree; failures on individual branches are surfaced (GH annotations + step summary) but don't abort the whole orchestrator. The workflow exits non-zero at the end if any branch failed.
+#
+# Structural note: each existing exact branch is `git merge`d with origin/main before its update-version runs, so orchestrator/workflow improvements that land on main propagate forward through every branch's tree. Branch-owned files (pin.nix, flake.lock, vendored frontend) stay as-is via the `ours` merge driver declared in .gitattributes.
 
 set -euo pipefail
 : "${MINIMUM_TRACKING_VERSION:?required env var}"
@@ -35,6 +38,8 @@ version_lt() { [[ "$1" != "$2" ]] && [[ "$(printf '%s\n%s\n' "$1" "$2" | sort -V
 
 git config user.name "github-actions[bot]"
 git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+# Define the `ours` merge driver so .gitattributes' `merge=ours` rules take effect: `true` exits 0 without touching the file, leaving the branch's version.
+git config merge.ours.driver true
 
 echo "Querying upstream..."
 mapfile -t raw_versions < <(list_upstream_versions)
@@ -66,6 +71,8 @@ echo "Tracking ${#tracked[@]} upstream versions: ${tracked[*]}"
 git fetch --quiet origin
 main_sha=$(git rev-parse --verify origin/main)
 
+declare -a failed=()
+
 for v in "${tracked[@]}"; do
   branch="v${v}"
   wt=$(mktemp -d)
@@ -74,6 +81,8 @@ for v in "${tracked[@]}"; do
     echo "=== Refreshing existing branch ${branch}"
     git fetch --quiet origin "${branch}:refs/remotes/origin/${branch}" || true
     git worktree add -B "${branch}" "${wt}" "origin/${branch}" >/dev/null
+    # Merge any orchestrator/workflow improvements that have landed on main since this branch was last touched. Branch-owned files (pin.nix, flake.lock, pkgs/unsloth-studio-frontend/**) stay as-is per .gitattributes' `merge=ours` rules. A no-op merge is silent.
+    (cd "${wt}" && git merge --no-edit origin/main)
   else
     echo
     echo "=== Creating new branch ${branch} from main"
@@ -81,14 +90,30 @@ for v in "${tracked[@]}"; do
     (cd "${wt}" && write_placeholder_pin "${v}")
   fi
   pushd "${wt}" >/dev/null
+  set +e
   nix flake update --option post-build-hook ""
   SKIP_BUILD=1 FLAKE_ROOT="${wt}" nix run --option post-build-hook "" .#update-version -- "${v}"
+  uv_exit=$?
+  set -e
+  if (( uv_exit != 0 )); then
+    failed+=("${v}")
+    # GH Actions annotation — appears in the run UI and on commit/PR pages.
+    echo "::warning title=Branch ${branch} skipped::update-version failed for ${v} (exit ${uv_exit}). Likely an upstream package.json / source defect at that release; see the orchestrator log above for the npm/source error."
+    echo "  WARN: update-version failed for ${branch} (exit ${uv_exit}); skipping." >&2
+    popd >/dev/null
+    git worktree remove --force "${wt}" >/dev/null
+    continue
+  fi
   if ! git diff --quiet -- pin.nix flake.lock pkgs/unsloth-studio-frontend/ || [[ -n "$(git ls-files --others --exclude-standard -- flake.lock pkgs/unsloth-studio-frontend/)" ]]; then
     git add pin.nix flake.lock pkgs/unsloth-studio-frontend/
     git commit -q -m "auto: ${v} pin"
     git push --quiet origin "${branch}"
   else
     echo "  no change on ${branch}"
+    # The merge from main may have advanced the branch without touching tracked files we diff for. Push if local HEAD is ahead of origin.
+    if [[ "$(git rev-parse HEAD)" != "$(git rev-parse "origin/${branch}")" ]]; then
+      git push --quiet origin "${branch}"
+    fi
   fi
   popd >/dev/null
   git worktree remove --force "${wt}" >/dev/null
@@ -98,6 +123,10 @@ git fetch --quiet origin
 declare -A agg_target_version=()
 record() { local key="$1" v="$2"; cur="${agg_target_version[$key]:-}"; if [[ -z "${cur}" ]] || version_lt "${cur}" "${v}"; then agg_target_version[$key]="${v}"; fi; }
 for v in "${tracked[@]}"; do
+  # Only consider exact branches that actually exist on origin (failed branches won't have a ref to advance aggregates to).
+  if ! git ls-remote --exit-code --heads origin "v${v}" >/dev/null 2>&1; then
+    continue
+  fi
   IFS='.' read -r M m _ <<<"${v}"
   record "main" "${v}"
   record "v${M}" "${v}"
@@ -120,4 +149,22 @@ for agg in "${!agg_target_version[@]}"; do
 done
 
 echo
+if (( ${#failed[@]} > 0 )); then
+  echo "=== ${#failed[@]} branch(es) failed: ${failed[*]}"
+  if [[ -n "${GITHUB_STEP_SUMMARY:-}" ]]; then
+    {
+      echo "## :warning: ${#failed[@]} branch(es) failed to update"
+      echo
+      echo "These upstream versions couldn't be packaged (typically a broken upstream package.json or source). They were skipped; aggregate pointers reflect only the successful branches."
+      echo
+      for v in "${failed[@]}"; do
+        echo "- \`v${v}\`"
+      done
+      echo
+      echo "See the orchestrator log for the underlying error per version."
+    } >> "${GITHUB_STEP_SUMMARY}"
+  fi
+  exit 1
+fi
+
 echo "Done."
