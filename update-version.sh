@@ -72,7 +72,8 @@ trap 'rm -rf "${work}"' EXIT
   # `react-is` is recharts' peerDependency; rolldown/vite's strict resolver fails to find it via peers, so add it as a direct dep with the same range upstream uses for `react` itself (recharts accepts `^16 || ^17 || ^18 || ^19`, so matching React's major resolves cleanly).
   react_range=$(jq -r '.dependencies.react' package.json)
   jq --arg r "${react_range}" '.dependencies["react-is"] = $r' package.json | sponge package.json
-  npm install --package-lock-only --no-audit --no-fund
+  # --legacy-peer-deps: upstream sometimes pins a dep at a version that doesn't satisfy a transitive peer requirement (e.g. v0.1.41-beta has `@assistant-ui/tap@0.5.10` while a transitive `@assistant-ui/store@0.2.10` peer-requires `^0.5.11`). npm 7+'s strict peer enforcement would ERESOLVE-fail on these; the legacy resolver picks something workable and moves on. The vite build doesn't care about peer-mismatch warnings.
+  npm install --package-lock-only --no-audit --no-fund --legacy-peer-deps
 )
 cp "${work}/package.json" "${frontend}/package.json"
 cp "${work}/package-lock.json" "${frontend}/package-lock.json"
