@@ -5,7 +5,7 @@
 # Unsloth-specific bits:
 # - list_upstream_versions queries GitHub releases (unslothai/unsloth).
 # - placeholder pin.nix has 4 fields (version, sourceRev, sourceHash, npmDepsHash).
-# - the diff check includes pkgs/unsloth-studio-frontend/* since update-version regenerates package.json/package-lock.json.
+# - the diff check includes pkgs/unsloth-studio-frontend/* since update-version regenerates package.json/package-lock.json, and pkgs/unsloth-studio/upstream-deps.nix since update-version derives it from upstream's requirements at the pinned rev.
 # - Some upstream releases ship a broken npm tree; failures on individual branches are surfaced (GH annotations + step summary) but don't abort the whole orchestrator. The workflow exits non-zero at the end if any branch failed.
 #
 # Structural note: each existing exact branch is `git merge`d with origin/main before its update-version runs, so orchestrator/workflow improvements that land on main propagate forward through every branch's tree. Branch-owned files (pin.nix, flake.lock, vendored frontend) stay as-is via the `ours` merge driver declared in .gitattributes.
@@ -103,8 +103,8 @@ for v in "${tracked[@]}"; do
     git worktree remove --force "${wt}" >/dev/null
     continue
   fi
-  if ! git diff --quiet -- pin.nix flake.lock pkgs/unsloth-studio-frontend/ || [[ -n "$(git ls-files --others --exclude-standard -- flake.lock pkgs/unsloth-studio-frontend/)" ]]; then
-    git add pin.nix flake.lock pkgs/unsloth-studio-frontend/
+  if ! git diff --quiet -- pin.nix flake.lock pkgs/unsloth-studio-frontend/ pkgs/unsloth-studio/upstream-deps.nix || [[ -n "$(git ls-files --others --exclude-standard -- flake.lock pkgs/unsloth-studio-frontend/ pkgs/unsloth-studio/upstream-deps.nix)" ]]; then
+    git add pin.nix flake.lock pkgs/unsloth-studio-frontend/ pkgs/unsloth-studio/upstream-deps.nix
     git commit -q -m "auto: ${v} pin"
     git push --quiet origin "${branch}"
   else

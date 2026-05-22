@@ -1,4 +1,4 @@
-#!/usr/bin/env -S nix shell nixpkgs#bash nixpkgs#gh nixpkgs#jq nixpkgs#nodejs nixpkgs#nix-prefetch-github nixpkgs#prefetch-npm-deps nixpkgs#moreutils --command bash
+#!/usr/bin/env -S nix shell nixpkgs#bash nixpkgs#gh nixpkgs#jq nixpkgs#nodejs nixpkgs#nix-prefetch-github nixpkgs#prefetch-npm-deps nixpkgs#moreutils nixpkgs#python3 --command bash
 
 # Bumps pin.nix + the vendored frontend package.json/package-lock.json to the requested release of unslothai/unsloth. Run from the flake root:
 #
@@ -78,6 +78,20 @@ cp "${work}/package-lock.json" "${frontend}/package-lock.json"
 
 echo "Computing npm deps hash..."
 new_npm_hash=$(prefetch-npm-deps "${frontend}/package-lock.json")
+
+echo "Regenerating upstream-deps.nix..."
+deps_work=$(mktemp -d)
+trap 'rm -rf "${work}" "${deps_work}"' EXIT
+mkdir -p "${deps_work}/studio/backend/requirements"
+for path in \
+  pyproject.toml \
+  studio/backend/requirements/studio.txt \
+  studio/backend/requirements/base.txt
+do
+  gh api "/repos/${repo_owner}/${repo_name}/contents/${path}?ref=${new_rev}" \
+    --jq '.content' | base64 -d > "${deps_work}/${path}"
+done
+python3 "${FLAKE_ROOT}/gen-deps.py" "${deps_work}" "${FLAKE_ROOT}/pkgs/unsloth-studio/upstream-deps.nix"
 
 echo "Writing pin.nix..."
 cat > "${pin}" <<EOF
