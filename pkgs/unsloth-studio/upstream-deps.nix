@@ -5,7 +5,6 @@
 [
   "accelerate"
   "addict"
-  "cryptography"
   "datasets"
   "ddgs"
   "diceware"
@@ -13,7 +12,6 @@
   "easydict"
   "fastapi"
   "hf-transfer"
-  "httpx"
   "huggingface-hub"
   "matplotlib"
   "nest-asyncio"
