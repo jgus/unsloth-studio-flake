@@ -2,6 +2,7 @@
 # exact branch (to pick up orchestrator/workflow improvements), these files
 # stay as-is on the branch. The `ours` merge driver is configured at runtime
 # by update-branches.sh (`git config merge.ours.driver true`).
-pin.nix                            merge=ours
-flake.lock                         merge=ours
-pkgs/unsloth-studio-frontend/**    merge=ours
+pin.nix                               merge=ours
+flake.lock                            merge=ours
+pkgs/unsloth-studio-frontend/**       merge=ours
+pkgs/unsloth-studio/upstream-deps.nix merge=ours
