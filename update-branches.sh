@@ -92,7 +92,7 @@ for v in "${tracked[@]}"; do
   pushd "${wt}" >/dev/null
   set +e
   nix flake update --option post-build-hook ""
-  SKIP_BUILD=1 FLAKE_ROOT="${wt}" nix run --option post-build-hook "" .#update-version -- "${v}"
+  FLAKE_ROOT="${wt}" nix run --option post-build-hook "" .#update-version -- "${v}"
   uv_exit=$?
   set -e
   if (( uv_exit != 0 )); then
