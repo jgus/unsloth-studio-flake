@@ -6,7 +6,6 @@
 # - list_upstream_versions queries GitHub releases (unslothai/unsloth).
 # - placeholder pin.nix has 4 fields (version, sourceRev, sourceHash, npmDepsHash).
 # - the diff check includes pkgs/unsloth-studio-frontend/* since update-version regenerates package.json/package-lock.json.
-# - SKIP_BUILD=1 is passed through to update-version (heavy AI deps don't fit on GH runners).
 # - Some upstream releases ship a broken npm tree; failures on individual branches are surfaced (GH annotations + step summary) but don't abort the whole orchestrator. The workflow exits non-zero at the end if any branch failed.
 #
 # Structural note: each existing exact branch is `git merge`d with origin/main before its update-version runs, so orchestrator/workflow improvements that land on main propagate forward through every branch's tree. Branch-owned files (pin.nix, flake.lock, vendored frontend) stay as-is via the `ours` merge driver declared in .gitattributes.

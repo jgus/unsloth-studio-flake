@@ -6,8 +6,6 @@
 #   nix run .#update-version -- <ref>     # specific tag, branch, or SHA (e.g. v2025.10.6 or 1.2.3)
 #
 # Always recomputes hashes and rewrites pin if anything changed; idempotent on no-change runs.
-#
-# Set SKIP_BUILD=1 to skip the final `nix build` verification step (used in CI where the heavy AI deps would blow the runner's resource budget). Hashes are still correct — they're derived from prefetch tools, not guessed.
 
 set -euo pipefail
 
@@ -92,13 +90,9 @@ cat > "${pin}" <<EOF
 }
 EOF
 
-if [[ "${SKIP_BUILD:-}" == "1" ]]; then
-  echo "SKIP_BUILD=1; skipping nix build verification."
-else
-  echo "Verifying builds..."
-  nix build --option post-build-hook "" "${FLAKE_ROOT}#unsloth-studio-frontend" --no-link
-  nix build --option post-build-hook "" "${FLAKE_ROOT}#unsloth-studio" --no-link
-fi
+echo "Verifying builds..."
+nix build --option post-build-hook "" "${FLAKE_ROOT}#unsloth-studio-frontend" --no-link
+nix build --option post-build-hook "" "${FLAKE_ROOT}#unsloth-studio" --no-link
 
 echo
 echo "Updated to ${new_version} (${new_rev})"
