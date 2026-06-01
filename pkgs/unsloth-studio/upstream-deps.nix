@@ -12,6 +12,7 @@
   "diffusers"
   "easydict"
   "fastapi"
+  "fastmcp"
   "hf-transfer"
   "httpx"
   "huggingface-hub"
