@@ -1,5 +1,29 @@
 {
   "nodes": {
+    "flake-lib": {
+      "inputs": {
+        "flake-utils": [
+          "flake-utils"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1780508610,
+        "narHash": "sha256-daUgZAn2yd+vkPmDVMwX4Yt1qjZeyfed7EF6t5b/P5w=",
+        "owner": "jgus",
+        "repo": "flake-lib",
+        "rev": "59f88fdfe8bbc5f62e97dc2cd080674c8c3034f7",
+        "type": "github"
+      },
+      "original": {
+        "owner": "jgus",
+        "ref": "v1",
+        "repo": "flake-lib",
+        "type": "github"
+      }
+    },
     "flake-utils": {
       "inputs": {
         "systems": "systems"
@@ -36,6 +60,7 @@
     },
     "root": {
       "inputs": {
+        "flake-lib": "flake-lib",
         "flake-utils": "flake-utils",
         "nixpkgs": "nixpkgs"
       }
