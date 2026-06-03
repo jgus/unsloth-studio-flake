@@ -29,4 +29,7 @@ jobs:
       - name: Orchestrate per-version branches
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # The full unsloth build (torch/vllm/…) won't fit on a GH runner; the artifactHook
+          # computes npmDepsHash without building, so skip the per-branch build verification.
+          SKIP_BUILD: "1"
         run: nix run .#update-branches
