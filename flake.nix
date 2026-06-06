@@ -68,6 +68,8 @@
               inherit pkgs source;
               pinSchema = "github-npm";
               branchOwnedFiles = [ "pin.nix" "flake.lock" "pkgs/unsloth-studio-frontend" "pkgs/unsloth-studio/upstream-deps.nix" ];
+              # Upstream tags 0.1.405-beta as a hotfix on 0.1.40 (released between 0.1.39 and 0.1.41), but 405 sorts above 44. Remap so it sorts as 0.1.40.5.
+              versionOverrides = { "0.1.405-beta" = "0.1.40.5-beta"; };
             };
             default = pkgs.python3.pkgs.unsloth-studio;
           };
