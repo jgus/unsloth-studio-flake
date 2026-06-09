@@ -10,9 +10,22 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-utils.follows = "flake-utils";
     };
+    # The Apache unsloth / unsloth-zoo libs come from nixpkgs but lag upstream; these sibling flakes overlay a version bump. Composed into overlays.default below so a single consumer overlay carries all three. Tracking main = latest released version.
+    unsloth = {
+      url = "github:jgus/unsloth-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-utils.follows = "flake-utils";
+      inputs.flake-lib.follows = "flake-lib";
+    };
+    unsloth-zoo = {
+      url = "github:jgus/unsloth-zoo-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-utils.follows = "flake-utils";
+      inputs.flake-lib.follows = "flake-lib";
+    };
   };
 
-  outputs = { self, nixpkgs, flake-utils, flake-lib }:
+  outputs = { self, nixpkgs, flake-utils, flake-lib, unsloth, unsloth-zoo }:
     let
       # Single source of truth for the upstream rev + the hashes that depend on it. Regenerate via `nix run .#update-version` from this directory.
       pin = import ./pin.nix;
@@ -43,6 +56,13 @@
               });
           });
         };
+
+      # Single consumer-facing overlay: the unsloth / unsloth-zoo version bumps plus the studio injection. Order is zoo, then unsloth, then studio — each overrides nixpkgs' python3 scope independently, so the bumped libs are present when studio's dependencies resolve.
+      composedOverlay = nixpkgs.lib.composeManyExtensions [
+        unsloth-zoo.overlays.default
+        unsloth.overlays.default
+        overlay
+      ];
     in
     flake-utils.lib.eachDefaultSystem
       (system:
@@ -50,7 +70,7 @@
           pkgs = import nixpkgs {
             inherit system;
             config.allowUnfree = true;
-            overlays = [ overlay ];
+            overlays = [ composedOverlay ];
           };
         in
         {
@@ -74,6 +94,6 @@
             default = pkgs.python3.pkgs.unsloth-studio;
           };
         }) // {
-      overlays.default = overlay;
+      overlays.default = composedOverlay;
     };
 }

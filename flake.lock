@@ -62,7 +62,9 @@
       "inputs": {
         "flake-lib": "flake-lib",
         "flake-utils": "flake-utils",
-        "nixpkgs": "nixpkgs"
+        "nixpkgs": "nixpkgs",
+        "unsloth": "unsloth",
+        "unsloth-zoo": "unsloth-zoo"
       }
     },
     "systems": {
@@ -77,6 +79,58 @@
       "original": {
         "owner": "nix-systems",
         "repo": "default",
+        "type": "github"
+      }
+    },
+    "unsloth": {
+      "inputs": {
+        "flake-lib": [
+          "flake-lib"
+        ],
+        "flake-utils": [
+          "flake-utils"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1781043681,
+        "narHash": "sha256-KNb5zyL3fTDxtHSS42RG+DAT9ZRhnBGgW6N3QFi//zA=",
+        "owner": "jgus",
+        "repo": "unsloth-flake",
+        "rev": "7620834f9bb9bdc4ec7dc691b446cdeab2d87e12",
+        "type": "github"
+      },
+      "original": {
+        "owner": "jgus",
+        "repo": "unsloth-flake",
+        "type": "github"
+      }
+    },
+    "unsloth-zoo": {
+      "inputs": {
+        "flake-lib": [
+          "flake-lib"
+        ],
+        "flake-utils": [
+          "flake-utils"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1781043681,
+        "narHash": "sha256-O/RpAn1OAt3MQZO54IiTGjbRyKmtbI09nweta3jRiIM=",
+        "owner": "jgus",
+        "repo": "unsloth-zoo-flake",
+        "rev": "cb222f89f4093778f6ce052c7c003da0db05d522",
+        "type": "github"
+      },
+      "original": {
+        "owner": "jgus",
+        "repo": "unsloth-zoo-flake",
         "type": "github"
       }
     }
