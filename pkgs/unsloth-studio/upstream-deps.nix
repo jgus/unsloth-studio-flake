@@ -29,6 +29,7 @@
   "pymupdf"
   "python-docx"
   "pyyaml"
+  "rich"
   "sentence-transformers"
   "sentencepiece"
   "sqlite-vec"
