@@ -5,7 +5,6 @@
 [
   "accelerate"
   "addict"
-  "boto3"
   "cryptography"
   "datasets"
   "ddgs"
