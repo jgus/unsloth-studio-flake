@@ -4,12 +4,13 @@
 # default.nix layers `extraDeps` and `excludeDeps` on top of this list.
 [
   "accelerate"
-  "boto3"
+  "addict"
   "cryptography"
   "datasets"
   "ddgs"
   "diceware"
   "diffusers"
+  "easydict"
   "fastapi"
   "fastmcp"
   "hf-transfer"
@@ -26,7 +27,6 @@
   "pydantic"
   "pyjwt"
   "pymupdf"
-  "pymupdf4llm"
   "python-docx"
   "pyyaml"
   "rich"
