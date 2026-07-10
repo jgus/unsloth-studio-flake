@@ -88,8 +88,8 @@
               inherit pkgs source;
               pinSchema = "github-npm";
               branchOwnedFiles = [ "pin.nix" "flake.lock" "pkgs/unsloth-studio-frontend" "pkgs/unsloth-studio/upstream-deps.nix" ];
-              # Upstream tags 0.1.405-beta as a hotfix on 0.1.40 (released between 0.1.39 and 0.1.41), but 405 sorts above 44. Remap so it sorts as 0.1.40.5.
-              versionOverrides = { "0.1.405-beta" = "0.1.40.5-beta"; };
+              # Upstream encodes a hotfix as a 3-digit patch: 0.1.XXX-beta is hotfix X on 0.1.XX (e.g. 0.1.405-beta = 0.1.40.5, 0.1.481-beta = 0.1.48.1). Left raw, 0.1.405 sorts above 0.1.44. Canonicalize to 0.1.XX.X-beta so sort -V orders them correctly.
+              versionCanon = [ ''s/^0\.1\.([0-9]{2})([0-9])-beta$/0.1.\1.\2-beta/'' ];
             };
             default = pkgs.python3.pkgs.unsloth-studio;
           };
