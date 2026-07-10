@@ -47,6 +47,7 @@ let
       "frontend/*.html",
       "backend/requirements/**/*",
       "backend/plugins/**/*",
+      "backend/assets/**/*",
       "backend/core/data_recipe/oxc-validator/*.json",
       "backend/core/data_recipe/oxc-validator/*.mjs",
     ]
