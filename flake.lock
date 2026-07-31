@@ -95,11 +95,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1785403985,
-        "narHash": "sha256-oVYRq8AEMM14VaL250l+mqpt0LxyonVWUttgzmBR5K8=",
+        "lastModified": 1785498828,
+        "narHash": "sha256-MozhL/K1KwFKxiyOHvpFM+V+IVG4x0EebTLffUX3zHM=",
         "owner": "jgus",
         "repo": "unsloth-flake",
-        "rev": "9d48a0e27156bf6d527a4d591aaadb733accd248",
+        "rev": "54eb95af6564685b06b924cce368fa6a70967d8b",
         "type": "github"
       },
       "original": {
