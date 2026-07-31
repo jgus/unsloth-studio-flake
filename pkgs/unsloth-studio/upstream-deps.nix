@@ -5,6 +5,7 @@
 [
   "accelerate"
   "boto3"
+  "click"
   "cryptography"
   "datasets"
   "ddgs"
