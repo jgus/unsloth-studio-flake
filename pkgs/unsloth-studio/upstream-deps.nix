@@ -4,6 +4,7 @@
 # default.nix layers `extraDeps` and `excludeDeps` on top of this list.
 [
   "accelerate"
+  "av"
   "boto3"
   "click"
   "cryptography"
@@ -13,6 +14,7 @@
   "diffusers"
   "fastapi"
   "fastmcp"
+  "gguf"
   "hf-transfer"
   "httpx"
   "huggingface-hub"
