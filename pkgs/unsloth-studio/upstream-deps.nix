@@ -44,7 +44,6 @@
   "tyro"
   "unsloth"
   "unsloth-zoo"
-  "urllib3"
   "uvicorn"
   "wheel"
 ]
