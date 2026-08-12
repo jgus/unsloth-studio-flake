@@ -1,7 +1,7 @@
 # Auto-managed by `nix run .#update-version`. Manual edits will be overwritten by the next bump.
 {
-  version = "0.1.61-beta";
-  sourceRev = "3f55a969d8eb52574d44bc305caf76e9037325d5";
-  sourceHash = "sha256-0swBk75uGoMLTcrIqpL2opnT9LMXp7T+0TQrM54IU44=";
-  npmDepsHash = "sha256-SbnMUosYLwYloA9tbsgx+CLXTgTDjdlGfhDduXMjCC4=";
+  version = "0.1.62-beta";
+  sourceRev = "e2f61b152f422044716eeea1a25cae6a859bb80e";
+  sourceHash = "sha256-Fnx/q1h+BgdrMihfOf8lwBjfba24sutGdXn9XLG4Pd8=";
+  npmDepsHash = "sha256-Z+dVArcrJr0CC+IiKxGbYGhivUsN5H0ghfq8mLkqTSQ=";
 }
