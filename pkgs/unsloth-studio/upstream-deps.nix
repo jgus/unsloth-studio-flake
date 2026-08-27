@@ -18,7 +18,6 @@
   "hf-transfer"
   "httpx"
   "huggingface-hub"
-  "jinja2"
   "matplotlib"
   "nest-asyncio"
   "numpy"
