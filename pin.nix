@@ -18,6 +18,5 @@
     "sqlite-vec" = "v0.1.9";
     "diffusers" = "main";
     "transformers" = "v5.5.0";
-    "unsloth" = "main";
   };
 }
