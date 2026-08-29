@@ -3,5 +3,5 @@
   version = "0.1.61-beta";
   sourceRev = "3f55a969d8eb52574d44bc305caf76e9037325d5";
   sourceHash = "sha256-0swBk75uGoMLTcrIqpL2opnT9LMXp7T+0TQrM54IU44=";
-  npmDepsHash = "sha256-5pBfM0whYSTpDdZPB+9OWcYIRBCexSAla4sf82tQUKc=";
+  npmDepsHash = "sha256-CwOF99ss4M7NQdP6A7RVRWI2QLxY18m0IM0T8zO8k30=";
 }
