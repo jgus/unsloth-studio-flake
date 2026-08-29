@@ -1,9 +1,8 @@
 name: Update branches
 
 on:
-  # 30 min after the unsloth / unsloth-zoo sibling flakes (07:00) so each per-branch `nix flake update` picks up their latest aggregate.
   schedule:
-    - cron: '30 7 * * *'
+    - cron: '0 8 * * *'
   workflow_dispatch: {}
 
 permissions:
