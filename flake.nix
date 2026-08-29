@@ -5,90 +5,90 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     flake-utils.url = "github:numtide/flake-utils";
     flake-lib = {
-      url = "github:jgus/flake-lib?ref=feat/pyproject-sibling-cascades";
+      url = "github:jgus/flake-lib/v1";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-utils.follows = "flake-utils";
     };
     typer = {
-      url = "github:jgus/typer-flake/main";
+      url = "github:jgus/typer-flake";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-utils.follows = "flake-utils";
       inputs.flake-lib.follows = "flake-lib";
     };
     fastapi = {
-      url = "github:jgus/fastapi-flake/v0.141.1";
+      url = "github:jgus/fastapi-flake";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-utils.follows = "flake-utils";
       inputs.flake-lib.follows = "flake-lib";
     };
     uvicorn = {
-      url = "github:jgus/uvicorn-flake/v0.52.1";
+      url = "github:jgus/uvicorn-flake";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-utils.follows = "flake-utils";
       inputs.flake-lib.follows = "flake-lib";
     };
     pydantic = {
-      url = "github:jgus/pydantic-flake/main";
+      url = "github:jgus/pydantic-flake";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-utils.follows = "flake-utils";
       inputs.flake-lib.follows = "flake-lib";
     };
     packaging = {
-      url = "github:jgus/packaging-flake/main";
+      url = "github:jgus/packaging-flake";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-utils.follows = "flake-utils";
       inputs.flake-lib.follows = "flake-lib";
     };
     matplotlib = {
-      url = "github:jgus/matplotlib-flake/v3.10.9";
+      url = "github:jgus/matplotlib-flake";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-utils.follows = "flake-utils";
       inputs.flake-lib.follows = "flake-lib";
     };
     pandas = {
-      url = "github:jgus/pandas-flake/v2.3.3";
+      url = "github:jgus/pandas-flake";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-utils.follows = "flake-utils";
       inputs.flake-lib.follows = "flake-lib";
     };
     datasets = {
-      url = "github:jgus/datasets-flake/v4.3";
+      url = "github:jgus/datasets-flake";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-utils.follows = "flake-utils";
       inputs.flake-lib.follows = "flake-lib";
     };
     ddgs = {
-      url = "github:jgus/ddgs-flake/v9.14.4";
+      url = "github:jgus/ddgs-flake";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-utils.follows = "flake-utils";
       inputs.flake-lib.follows = "flake-lib";
     };
     gguf = {
-      url = "github:jgus/gguf-flake/v0.19.0";
+      url = "github:jgus/gguf-flake";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-utils.follows = "flake-utils";
       inputs.flake-lib.follows = "flake-lib";
     };
     sqlite-vec = {
-      url = "github:jgus/sqlite-vec-flake/v0.1.9";
+      url = "github:jgus/sqlite-vec-flake";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-utils.follows = "flake-utils";
       inputs.flake-lib.follows = "flake-lib";
     };
     diffusers = {
-      url = "github:jgus/diffusers-flake/main";
+      url = "github:jgus/diffusers-flake";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-utils.follows = "flake-utils";
       inputs.flake-lib.follows = "flake-lib";
     };
     transformers = {
-      url = "github:jgus/transformers-flake/v5.5.0";
+      url = "github:jgus/transformers-flake";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-utils.follows = "flake-utils";
       inputs.flake-lib.follows = "flake-lib";
     };
     unsloth = {
-      url = "github:jgus/unsloth-flake/main";
+      url = "github:jgus/unsloth-flake";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-utils.follows = "flake-utils";
       inputs.flake-lib.follows = "flake-lib";
@@ -162,6 +162,7 @@
                 });
                 unsloth-studio = ((pyfinal.callPackage ./pkgs/unsloth-studio {
                   inherit src version unsloth-studio-frontend;
+                  inherit (flake-lib.lib) versionMatchesComparison;
                   dependencyOverrides.packaging = packagingForPython;
                 }).overridePythonAttrs (oldAttrs: {
                   catchConflicts = false;
@@ -260,12 +261,12 @@
                 "transformers"
               ]
               ++ map studioRequirementsSibling [ "matplotlib" "pandas" ];
+            siblingRefsInPin = true;
           };
           update-branches = flake-lib.lib.mkUpdateBranches {
             inherit pkgs source;
             pinSchema = "github-npm";
             branchOwnedFiles = [
-              "flake.nix"
               "pin.nix"
               "flake.lock"
               "pkgs/unsloth-studio-frontend"
