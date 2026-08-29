@@ -127,7 +127,7 @@
       },
       "original": {
         "owner": "jgus",
-        "ref": "feat/pyproject-sibling-cascades",
+        "ref": "v1",
         "repo": "flake-lib",
         "type": "github"
       }
