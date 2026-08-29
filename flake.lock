@@ -22,7 +22,7 @@
       },
       "original": {
         "owner": "jgus",
-        "ref": "v4.3.0",
+        "ref": "v4.3",
         "repo": "datasets-flake",
         "type": "github"
       }
@@ -242,7 +242,7 @@
       },
       "original": {
         "owner": "jgus",
-        "ref": "v26.3",
+        "ref": "main",
         "repo": "packaging-flake",
         "type": "github"
       }
@@ -288,16 +288,16 @@
         "pydantic-core": "pydantic-core"
       },
       "locked": {
-        "lastModified": 1788009504,
-        "narHash": "sha256-UGfGsPlCi5yDRrMeQeyznq4DRLiN6dt6Y3HkwzepIRc=",
+        "lastModified": 1788009507,
+        "narHash": "sha256-yQtpL21nyhiXArk88y8ZilHjx+iT8oSSfp5Q07/DkEQ=",
         "owner": "jgus",
         "repo": "pydantic-flake",
-        "rev": "390d4e25bfd8423690ed5ba773880f830cba1617",
+        "rev": "d1bd4dce96e6cb0c5ea14d7867383032b0bd8747",
         "type": "github"
       },
       "original": {
         "owner": "jgus",
-        "ref": "v2.13.4",
+        "ref": "main",
         "repo": "pydantic-flake",
         "type": "github"
       }
@@ -318,16 +318,16 @@
         ]
       },
       "locked": {
-        "lastModified": 1787961882,
-        "narHash": "sha256-tI7/LZ6JglnRlGwl0C5rFgHQxKC57wDaNarJA7f1xKo=",
+        "lastModified": 1787961887,
+        "narHash": "sha256-VDgPVa96CBIqqxKCcdL3Dmj5zYSPMu5ATHZTyJxDZVg=",
         "owner": "jgus",
         "repo": "pydantic-core-flake",
-        "rev": "8518f76458b050b633068a4a6c2dfb5c97871afb",
+        "rev": "f163490efbf0d47be4e94537051750db1f499766",
         "type": "github"
       },
       "original": {
         "owner": "jgus",
-        "ref": "v2.46.4",
+        "ref": "v2.46.5",
         "repo": "pydantic-core-flake",
         "type": "github"
       }
@@ -466,16 +466,16 @@
         ]
       },
       "locked": {
-        "lastModified": 1788008857,
-        "narHash": "sha256-YxgpkEI2kOEJZA3kZe+Za2w1XhlD1hWyj1PN0FYtpN0=",
+        "lastModified": 1788008861,
+        "narHash": "sha256-2O+BKnp8FpE2jrIZHHinqmbl4dIZgbMegfTq1tSnkQc=",
         "owner": "jgus",
         "repo": "typer-flake",
-        "rev": "5750627a763a156a3ba9cf7707ff170e58fe15da",
+        "rev": "9700e847ccb91fc7db092ab4e14b92ec2f87d489",
         "type": "github"
       },
       "original": {
         "owner": "jgus",
-        "ref": "v0.27.1",
+        "ref": "main",
         "repo": "typer-flake",
         "type": "github"
       }
