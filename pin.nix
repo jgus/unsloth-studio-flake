@@ -4,4 +4,20 @@
   sourceRev = "6eb23efcbf9428c73e9c2fc2e0bad855616cfd7f";
   sourceHash = "sha256-eRydB7W926O0oCJ+o7Q8Iim5TiAx1qxwaE/aq8jF2iI=";
   npmDepsHash = "sha256-CwOF99ss4M7NQdP6A7RVRWI2QLxY18m0IM0T8zO8k30=";
+  dependencies = {
+    "typer" = "main";
+    "fastapi" = "main";
+    "uvicorn" = "main";
+    "pydantic" = "main";
+    "packaging" = "main";
+    "matplotlib" = "v3.10.9";
+    "pandas" = "v2.3.3";
+    "datasets" = "v4.3.0";
+    "ddgs" = "main";
+    "gguf" = "main";
+    "sqlite-vec" = "v0.1.9";
+    "diffusers" = "main";
+    "transformers" = "v5.5.0";
+    "unsloth" = "main";
+  };
 }
