@@ -162,6 +162,7 @@
                 });
                 unsloth-studio = ((pyfinal.callPackage ./pkgs/unsloth-studio {
                   inherit src version unsloth-studio-frontend;
+                  inherit (flake-lib.lib) versionMatchesComparison;
                   dependencyOverrides.packaging = packagingForPython;
                 }).overridePythonAttrs (oldAttrs: {
                   catchConflicts = false;
