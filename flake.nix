@@ -10,7 +10,7 @@
       inputs.flake-utils.follows = "flake-utils";
     };
     typer = {
-      url = "github:jgus/typer-flake/v0.27.1";
+      url = "github:jgus/typer-flake/main";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-utils.follows = "flake-utils";
       inputs.flake-lib.follows = "flake-lib";
@@ -28,13 +28,13 @@
       inputs.flake-lib.follows = "flake-lib";
     };
     pydantic = {
-      url = "github:jgus/pydantic-flake/v2.13.4";
+      url = "github:jgus/pydantic-flake/main";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-utils.follows = "flake-utils";
       inputs.flake-lib.follows = "flake-lib";
     };
     packaging = {
-      url = "github:jgus/packaging-flake/v26.3";
+      url = "github:jgus/packaging-flake/main";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-utils.follows = "flake-utils";
       inputs.flake-lib.follows = "flake-lib";
@@ -52,7 +52,7 @@
       inputs.flake-lib.follows = "flake-lib";
     };
     datasets = {
-      url = "github:jgus/datasets-flake/v4.3.0";
+      url = "github:jgus/datasets-flake/v4.3";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.flake-utils.follows = "flake-utils";
       inputs.flake-lib.follows = "flake-lib";
