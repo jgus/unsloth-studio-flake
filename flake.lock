@@ -22,7 +22,6 @@
       },
       "original": {
         "owner": "jgus",
-        "ref": "v4.3.0",
         "repo": "datasets-flake",
         "type": "github"
       }
@@ -49,7 +48,6 @@
       },
       "original": {
         "owner": "jgus",
-        "ref": "v9.14.4",
         "repo": "ddgs-flake",
         "type": "github"
       }
@@ -76,7 +74,6 @@
       },
       "original": {
         "owner": "jgus",
-        "ref": "main",
         "repo": "diffusers-flake",
         "type": "github"
       }
@@ -103,7 +100,6 @@
       },
       "original": {
         "owner": "jgus",
-        "ref": "v0.141.1",
         "repo": "fastapi-flake",
         "type": "github"
       }
@@ -118,11 +114,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1788017105,
-        "narHash": "sha256-LKdLqhq1CZ2/uXLs5U4mtkpRInTv5jy5jIlrXSrq/ts=",
+        "lastModified": 1788033723,
+        "narHash": "sha256-gFkBFDMnq6tVlRxJMd7669h8EXvTejql8KYw7JJR+v0=",
         "owner": "jgus",
         "repo": "flake-lib",
-        "rev": "df70ee32f395e604562243f2f4bcf51bec48d83d",
+        "rev": "3b1d5f92b60f1403dd5d054ddfb8bad0d2b1135e",
         "type": "github"
       },
       "original": {
@@ -172,7 +168,6 @@
       },
       "original": {
         "owner": "jgus",
-        "ref": "v0.19.0",
         "repo": "gguf-flake",
         "type": "github"
       }
@@ -199,7 +194,6 @@
       },
       "original": {
         "owner": "jgus",
-        "ref": "v3.10.9",
         "repo": "matplotlib-flake",
         "type": "github"
       }
@@ -242,7 +236,6 @@
       },
       "original": {
         "owner": "jgus",
-        "ref": "v26.3",
         "repo": "packaging-flake",
         "type": "github"
       }
@@ -269,7 +262,6 @@
       },
       "original": {
         "owner": "jgus",
-        "ref": "v2.3.3",
         "repo": "pandas-flake",
         "type": "github"
       }
@@ -297,7 +289,6 @@
       },
       "original": {
         "owner": "jgus",
-        "ref": "v2.13.4",
         "repo": "pydantic-flake",
         "type": "github"
       }
@@ -375,7 +366,6 @@
       },
       "original": {
         "owner": "jgus",
-        "ref": "v0.1.9",
         "repo": "sqlite-vec-flake",
         "type": "github"
       }
@@ -448,7 +438,6 @@
       },
       "original": {
         "owner": "jgus",
-        "ref": "v5.5.0",
         "repo": "transformers-flake",
         "type": "github"
       }
@@ -475,7 +464,6 @@
       },
       "original": {
         "owner": "jgus",
-        "ref": "v0.27.1",
         "repo": "typer-flake",
         "type": "github"
       }
@@ -503,7 +491,6 @@
       },
       "original": {
         "owner": "jgus",
-        "ref": "main",
         "repo": "unsloth-flake",
         "type": "github"
       }
@@ -560,7 +547,6 @@
       },
       "original": {
         "owner": "jgus",
-        "ref": "v0.52.1",
         "repo": "uvicorn-flake",
         "type": "github"
       }
