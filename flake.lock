@@ -1,5 +1,113 @@
 {
   "nodes": {
+    "datasets": {
+      "inputs": {
+        "flake-lib": [
+          "flake-lib"
+        ],
+        "flake-utils": [
+          "flake-utils"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1788008285,
+        "narHash": "sha256-737Jl09DvBUyvP1Rsf4grqq5KnxS2iFvljtf5A0KWi0=",
+        "owner": "jgus",
+        "repo": "datasets-flake",
+        "rev": "e41c4f6cfa9d962ae9118c210444ac1bc1c65b00",
+        "type": "github"
+      },
+      "original": {
+        "owner": "jgus",
+        "ref": "v4.3.0",
+        "repo": "datasets-flake",
+        "type": "github"
+      }
+    },
+    "ddgs": {
+      "inputs": {
+        "flake-lib": [
+          "flake-lib"
+        ],
+        "flake-utils": [
+          "flake-utils"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1788008601,
+        "narHash": "sha256-c/JnsJ11UDzR3O2FtG8RbpSiCgX6ii7/K/BDpgflQ/0=",
+        "owner": "jgus",
+        "repo": "ddgs-flake",
+        "rev": "ee1c7679dc6f44cfe12dc9b069b5e8844ff1cbf1",
+        "type": "github"
+      },
+      "original": {
+        "owner": "jgus",
+        "ref": "v9.14.4",
+        "repo": "ddgs-flake",
+        "type": "github"
+      }
+    },
+    "diffusers": {
+      "inputs": {
+        "flake-lib": [
+          "flake-lib"
+        ],
+        "flake-utils": [
+          "flake-utils"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1788008416,
+        "narHash": "sha256-TKu59FvMaSt6wN/L4qqD1aJVhsfbCBEipjQCizyf9dU=",
+        "owner": "jgus",
+        "repo": "diffusers-flake",
+        "rev": "3016c96213c0eff23f74d687c90ba4c4f7a752ff",
+        "type": "github"
+      },
+      "original": {
+        "owner": "jgus",
+        "ref": "main",
+        "repo": "diffusers-flake",
+        "type": "github"
+      }
+    },
+    "fastapi": {
+      "inputs": {
+        "flake-lib": [
+          "flake-lib"
+        ],
+        "flake-utils": [
+          "flake-utils"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1788008233,
+        "narHash": "sha256-rrBg+Qr6qqEqINpgeSLUBdT29hvg0H2qbQ7ZnNPAj5A=",
+        "owner": "jgus",
+        "repo": "fastapi-flake",
+        "rev": "d966ca396cc83700a4b9c9756d3208ff2ed2ff17",
+        "type": "github"
+      },
+      "original": {
+        "owner": "jgus",
+        "ref": "v0.141.1",
+        "repo": "fastapi-flake",
+        "type": "github"
+      }
+    },
     "flake-lib": {
       "inputs": {
         "flake-utils": [
@@ -10,16 +118,16 @@
         ]
       },
       "locked": {
-        "lastModified": 1787959529,
-        "narHash": "sha256-7zbjVfZwJQZE5Aqf7xCVljrDvFQJjQsTGO3VtGMdISE=",
+        "lastModified": 1788017105,
+        "narHash": "sha256-LKdLqhq1CZ2/uXLs5U4mtkpRInTv5jy5jIlrXSrq/ts=",
         "owner": "jgus",
         "repo": "flake-lib",
-        "rev": "16c45f7e68829c3291b28203684f168b7dd284dc",
+        "rev": "df70ee32f395e604562243f2f4bcf51bec48d83d",
         "type": "github"
       },
       "original": {
         "owner": "jgus",
-        "ref": "v1",
+        "ref": "feat/pyproject-sibling-cascades",
         "repo": "flake-lib",
         "type": "github"
       }
@@ -42,6 +150,60 @@
         "type": "github"
       }
     },
+    "gguf": {
+      "inputs": {
+        "flake-lib": [
+          "flake-lib"
+        ],
+        "flake-utils": [
+          "flake-utils"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1788008367,
+        "narHash": "sha256-rdr3sefE8Nh01SlAtXGcdok948vu4TCoHg7tWLtEHvI=",
+        "owner": "jgus",
+        "repo": "gguf-flake",
+        "rev": "48a091697ca4618e09f33ec8d159fc498a3ceaaf",
+        "type": "github"
+      },
+      "original": {
+        "owner": "jgus",
+        "ref": "v0.19.0",
+        "repo": "gguf-flake",
+        "type": "github"
+      }
+    },
+    "matplotlib": {
+      "inputs": {
+        "flake-lib": [
+          "flake-lib"
+        ],
+        "flake-utils": [
+          "flake-utils"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1788008975,
+        "narHash": "sha256-78XXaGVz9rKcor+AhEg3AGCg8CHyKtcJwH/KJQuMR8g=",
+        "owner": "jgus",
+        "repo": "matplotlib-flake",
+        "rev": "a6772f82e7ca8c551a4fbb3e684ae743dbae3c12",
+        "type": "github"
+      },
+      "original": {
+        "owner": "jgus",
+        "ref": "v3.10.9",
+        "repo": "matplotlib-flake",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1787814960,
@@ -58,13 +220,164 @@
         "type": "github"
       }
     },
+    "packaging": {
+      "inputs": {
+        "flake-lib": [
+          "flake-lib"
+        ],
+        "flake-utils": [
+          "flake-utils"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1788008276,
+        "narHash": "sha256-HBi/mPwkwRYkoTFFTiF2cz46waufgtgJuPgL3sjkdFk=",
+        "owner": "jgus",
+        "repo": "packaging-flake",
+        "rev": "4fb2ae7aeb2c6a61ddb5bdcf5df5ace666820356",
+        "type": "github"
+      },
+      "original": {
+        "owner": "jgus",
+        "ref": "v26.3",
+        "repo": "packaging-flake",
+        "type": "github"
+      }
+    },
+    "pandas": {
+      "inputs": {
+        "flake-lib": [
+          "flake-lib"
+        ],
+        "flake-utils": [
+          "flake-utils"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1787975788,
+        "narHash": "sha256-nheYXCY57GKfl05Cni1/QiOWuNtDm6dZ1kmz8JgbEEw=",
+        "owner": "jgus",
+        "repo": "pandas-flake",
+        "rev": "45a871aaf38fc7788955501ad2a33618ca75f76e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "jgus",
+        "ref": "v2.3.3",
+        "repo": "pandas-flake",
+        "type": "github"
+      }
+    },
+    "pydantic": {
+      "inputs": {
+        "flake-lib": [
+          "flake-lib"
+        ],
+        "flake-utils": [
+          "flake-utils"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "pydantic-core": "pydantic-core"
+      },
+      "locked": {
+        "lastModified": 1788009504,
+        "narHash": "sha256-UGfGsPlCi5yDRrMeQeyznq4DRLiN6dt6Y3HkwzepIRc=",
+        "owner": "jgus",
+        "repo": "pydantic-flake",
+        "rev": "390d4e25bfd8423690ed5ba773880f830cba1617",
+        "type": "github"
+      },
+      "original": {
+        "owner": "jgus",
+        "ref": "v2.13.4",
+        "repo": "pydantic-flake",
+        "type": "github"
+      }
+    },
+    "pydantic-core": {
+      "inputs": {
+        "flake-lib": [
+          "pydantic",
+          "flake-lib"
+        ],
+        "flake-utils": [
+          "pydantic",
+          "flake-utils"
+        ],
+        "nixpkgs": [
+          "pydantic",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1787961882,
+        "narHash": "sha256-tI7/LZ6JglnRlGwl0C5rFgHQxKC57wDaNarJA7f1xKo=",
+        "owner": "jgus",
+        "repo": "pydantic-core-flake",
+        "rev": "8518f76458b050b633068a4a6c2dfb5c97871afb",
+        "type": "github"
+      },
+      "original": {
+        "owner": "jgus",
+        "ref": "v2.46.4",
+        "repo": "pydantic-core-flake",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
+        "datasets": "datasets",
+        "ddgs": "ddgs",
+        "diffusers": "diffusers",
+        "fastapi": "fastapi",
         "flake-lib": "flake-lib",
         "flake-utils": "flake-utils",
+        "gguf": "gguf",
+        "matplotlib": "matplotlib",
         "nixpkgs": "nixpkgs",
+        "packaging": "packaging",
+        "pandas": "pandas",
+        "pydantic": "pydantic",
+        "sqlite-vec": "sqlite-vec",
+        "transformers": "transformers",
+        "typer": "typer",
         "unsloth": "unsloth",
-        "unsloth-zoo": "unsloth-zoo_2"
+        "uvicorn": "uvicorn"
+      }
+    },
+    "sqlite-vec": {
+      "inputs": {
+        "flake-lib": [
+          "flake-lib"
+        ],
+        "flake-utils": [
+          "flake-utils"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1788008144,
+        "narHash": "sha256-02A3cNkGzypP9semJcxple3tM43bpMdb1xN3c2Q8ANc=",
+        "owner": "jgus",
+        "repo": "sqlite-vec-flake",
+        "rev": "f8ec878c66eb24aab127c592abce008a64c0552a",
+        "type": "github"
+      },
+      "original": {
+        "owner": "jgus",
+        "ref": "v0.1.9",
+        "repo": "sqlite-vec-flake",
+        "type": "github"
       }
     },
     "systems": {
@@ -79,6 +392,91 @@
       "original": {
         "owner": "nix-systems",
         "repo": "default",
+        "type": "github"
+      }
+    },
+    "tokenizers": {
+      "inputs": {
+        "flake-lib": [
+          "transformers",
+          "flake-lib"
+        ],
+        "flake-utils": [
+          "transformers",
+          "flake-utils"
+        ],
+        "nixpkgs": [
+          "transformers",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1788008461,
+        "narHash": "sha256-bzqSY9BJ2uvB1xPUIAtLaiLRU8UxMC5Wtk4NM7xTCQc=",
+        "owner": "jgus",
+        "repo": "tokenizers-flake",
+        "rev": "420ac00be082c7a61be83d570f6fefacab9d4ff2",
+        "type": "github"
+      },
+      "original": {
+        "owner": "jgus",
+        "ref": "v0.22",
+        "repo": "tokenizers-flake",
+        "type": "github"
+      }
+    },
+    "transformers": {
+      "inputs": {
+        "flake-lib": [
+          "flake-lib"
+        ],
+        "flake-utils": [
+          "flake-utils"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "tokenizers": "tokenizers"
+      },
+      "locked": {
+        "lastModified": 1788009500,
+        "narHash": "sha256-Yd0bSPQc8FLH+aoWiCUAJN2aIkCtYYG6skq9pGGs10A=",
+        "owner": "jgus",
+        "repo": "transformers-flake",
+        "rev": "1c9e6d9b3b5b2f7bfeede91004b79ca7e4311d8e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "jgus",
+        "ref": "v5.5.0",
+        "repo": "transformers-flake",
+        "type": "github"
+      }
+    },
+    "typer": {
+      "inputs": {
+        "flake-lib": [
+          "flake-lib"
+        ],
+        "flake-utils": [
+          "flake-utils"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1788008857,
+        "narHash": "sha256-YxgpkEI2kOEJZA3kZe+Za2w1XhlD1hWyj1PN0FYtpN0=",
+        "owner": "jgus",
+        "repo": "typer-flake",
+        "rev": "5750627a763a156a3ba9cf7707ff170e58fe15da",
+        "type": "github"
+      },
+      "original": {
+        "owner": "jgus",
+        "ref": "v0.27.1",
+        "repo": "typer-flake",
         "type": "github"
       }
     },
@@ -105,6 +503,7 @@
       },
       "original": {
         "owner": "jgus",
+        "ref": "main",
         "repo": "unsloth-flake",
         "type": "github"
       }
@@ -139,7 +538,7 @@
         "type": "github"
       }
     },
-    "unsloth-zoo_2": {
+    "uvicorn": {
       "inputs": {
         "flake-lib": [
           "flake-lib"
@@ -152,16 +551,17 @@
         ]
       },
       "locked": {
-        "lastModified": 1788008231,
-        "narHash": "sha256-YMUStC8x934Cl/Cw+PFayhL+MJiodMEBsY0HALEoy+I=",
+        "lastModified": 1788008303,
+        "narHash": "sha256-HsRnyhBuGH09SkRJFVwX1xfIpnWVKPywvaXi4M8eTMg=",
         "owner": "jgus",
-        "repo": "unsloth-zoo-flake",
-        "rev": "03a08125404a7ece5863668db6f025d27801ca45",
+        "repo": "uvicorn-flake",
+        "rev": "8671bac03f2895a1c123dd847f8cf12da81967fb",
         "type": "github"
       },
       "original": {
         "owner": "jgus",
-        "repo": "unsloth-zoo-flake",
+        "ref": "v0.52.1",
+        "repo": "uvicorn-flake",
         "type": "github"
       }
     }
