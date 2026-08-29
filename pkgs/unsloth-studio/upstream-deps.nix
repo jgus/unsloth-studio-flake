@@ -20,9 +20,7 @@
   { name = "httpx"; requirement = "httpx>=0.27.0"; marker = null; }
   { name = "huggingface-hub"; requirement = "huggingface-hub<2.0,>=1.23.0; python_version >= \"3.10\""; marker = { expression = "python_version"; operator = ">="; version = "3.10"; }; }
   { name = "huggingface-hub"; requirement = "huggingface-hub==0.36.2; python_version < \"3.10\""; marker = { expression = "python_version"; operator = "<"; version = "3.10"; }; }
-  { name = "huggingface-hub"; requirement = "huggingface-hub>=0.34.0"; marker = null; }
   { name = "huggingface-hub"; requirement = "huggingface_hub>=0.34.0"; marker = null; }
-  { name = "jinja2"; requirement = "jinja2>=3.1.0"; marker = null; }
   { name = "matplotlib"; requirement = "matplotlib==3.10.9"; marker = null; }
   { name = "nest-asyncio"; requirement = "nest-asyncio"; marker = null; }
   { name = "nest-asyncio"; requirement = "nest_asyncio==1.6.0"; marker = null; }
@@ -52,7 +50,7 @@
   { name = "typer"; requirement = "typer==0.27.1; python_version >= \"3.10\""; marker = { expression = "python_version"; operator = ">="; version = "3.10"; }; }
   { name = "typer"; requirement = "typer>=0.12.0"; marker = null; }
   { name = "tyro"; requirement = "tyro"; marker = null; }
-  { name = "unsloth-zoo"; requirement = "unsloth_zoo>=2026.8.16"; marker = null; }
+  { name = "unsloth-zoo"; requirement = "unsloth_zoo>=2026.8.12"; marker = null; }
   { name = "urllib3"; requirement = "urllib3>=2.3.0"; marker = null; }
   { name = "uvicorn"; requirement = "uvicorn==0.39.0; python_version < \"3.10\""; marker = { expression = "python_version"; operator = "<"; version = "3.10"; }; }
   { name = "uvicorn"; requirement = "uvicorn==0.52.1; python_version >= \"3.10\""; marker = { expression = "python_version"; operator = ">="; version = "3.10"; }; }
