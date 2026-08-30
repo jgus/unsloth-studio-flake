@@ -75,6 +75,12 @@
       inputs.flake-utils.follows = "flake-utils";
       inputs.flake-lib.follows = "flake-lib";
     };
+    nest-asyncio = {
+      url = "github:jgus/nest-asyncio-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-utils.follows = "flake-utils";
+      inputs.flake-lib.follows = "flake-lib";
+    };
     diffusers = {
       url = "github:jgus/diffusers-flake";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -110,6 +116,7 @@
     , ddgs
     , gguf
     , sqlite-vec
+    , nest-asyncio
     , diffusers
     , transformers
     , unsloth
@@ -215,6 +222,7 @@
         ddgs.overlays.default
         gguf.overlays.default
         sqlite-vec.overlays.default
+        nest-asyncio.overlays.default
         diffusers.overlays.default
         transformers.overlays.default
         unsloth.overlays.default
@@ -278,6 +286,7 @@
                 "ddgs"
                 "gguf"
                 "sqlite-vec"
+                "nest-asyncio"
                 "diffusers"
                 "transformers"
               ]
