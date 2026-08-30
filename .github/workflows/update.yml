@@ -13,7 +13,7 @@ concurrency:
   cancel-in-progress: false
 
 env:
-  MINIMUM_TRACKING_VERSION: "0.1.39-beta"
+  MINIMUM_TRACKING_VERSION: "0.1.70-beta"
 
 jobs:
   update:
