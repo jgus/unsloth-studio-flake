@@ -1,5 +1,37 @@
 {
   "nodes": {
+    "click": {
+      "inputs": {
+        "flake-lib": [
+          "diffusers",
+          "huggingface-hub",
+          "flake-lib"
+        ],
+        "flake-utils": [
+          "diffusers",
+          "huggingface-hub",
+          "flake-utils"
+        ],
+        "nixpkgs": [
+          "diffusers",
+          "huggingface-hub",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1788072753,
+        "narHash": "sha256-T3n8ymVEu5eMpUs+RE+XXVb4A08EwJ85SoTA0VTn2h8=",
+        "owner": "jgus",
+        "repo": "click-flake",
+        "rev": "63aa55e96c2b70256ced69e674e4a184cb713378",
+        "type": "github"
+      },
+      "original": {
+        "owner": "jgus",
+        "repo": "click-flake",
+        "type": "github"
+      }
+    },
     "datasets": {
       "inputs": {
         "flake-lib": [
@@ -60,16 +92,17 @@
         "flake-utils": [
           "flake-utils"
         ],
+        "huggingface-hub": "huggingface-hub",
         "nixpkgs": [
           "nixpkgs"
         ]
       },
       "locked": {
-        "lastModified": 1788093581,
-        "narHash": "sha256-rjHFiioNlP8nV3yj7ZqK0fUlY6H7rVpr8qsOXfC0Ri8=",
+        "lastModified": 1788112211,
+        "narHash": "sha256-S5J1Xv3R2d6/gRCz0aQp8UqxS1Tb1bx5ADW5BLNKBVQ=",
         "owner": "jgus",
         "repo": "diffusers-flake",
-        "rev": "21b18d85127a1766bc7bff84eeb54bbe7812cc01",
+        "rev": "bbe04fc53419c8f4b2c67f199af10031d2d7452d",
         "type": "github"
       },
       "original": {
@@ -172,6 +205,69 @@
         "type": "github"
       }
     },
+    "hf-xet": {
+      "inputs": {
+        "flake-lib": [
+          "diffusers",
+          "huggingface-hub",
+          "flake-lib"
+        ],
+        "flake-utils": [
+          "diffusers",
+          "huggingface-hub",
+          "flake-utils"
+        ],
+        "nixpkgs": [
+          "diffusers",
+          "huggingface-hub",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1788073039,
+        "narHash": "sha256-j9Si9fHgw0V1bHMHuRDGLPLy++uSKGamKCBDjUkDOnI=",
+        "owner": "jgus",
+        "repo": "hf-xet-flake",
+        "rev": "cfd0936f1927d31898b4e340c5ab7593493d622c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "jgus",
+        "repo": "hf-xet-flake",
+        "type": "github"
+      }
+    },
+    "huggingface-hub": {
+      "inputs": {
+        "click": "click",
+        "flake-lib": [
+          "diffusers",
+          "flake-lib"
+        ],
+        "flake-utils": [
+          "diffusers",
+          "flake-utils"
+        ],
+        "hf-xet": "hf-xet",
+        "nixpkgs": [
+          "diffusers",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1788075153,
+        "narHash": "sha256-auNKoqpjv4jiVl5dF23S8+aHHOB+tp4E881sdS29tVo=",
+        "owner": "jgus",
+        "repo": "huggingface-hub-flake",
+        "rev": "820a34ba5bb04ab4f51853d5a873c57522876f78",
+        "type": "github"
+      },
+      "original": {
+        "owner": "jgus",
+        "repo": "huggingface-hub-flake",
+        "type": "github"
+      }
+    },
     "matplotlib": {
       "inputs": {
         "flake-lib": [
@@ -195,6 +291,32 @@
       "original": {
         "owner": "jgus",
         "repo": "matplotlib-flake",
+        "type": "github"
+      }
+    },
+    "nest-asyncio": {
+      "inputs": {
+        "flake-lib": [
+          "flake-lib"
+        ],
+        "flake-utils": [
+          "flake-utils"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1788107845,
+        "narHash": "sha256-WJxRtH+rl3kMdXbtIvPbY22sKh9uulka3x+KUDO+GjI=",
+        "owner": "jgus",
+        "repo": "nest-asyncio-flake",
+        "rev": "7eb9af9cf4d9273d69d3ad47230ada0bfe6b9d78",
+        "type": "github"
+      },
+      "original": {
+        "owner": "jgus",
+        "repo": "nest-asyncio-flake",
         "type": "github"
       }
     },
@@ -332,6 +454,7 @@
         "flake-utils": "flake-utils",
         "gguf": "gguf",
         "matplotlib": "matplotlib",
+        "nest-asyncio": "nest-asyncio",
         "nixpkgs": "nixpkgs",
         "packaging": "packaging",
         "pandas": "pandas",
@@ -356,11 +479,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1788092980,
-        "narHash": "sha256-/Ra8Fc+n4ef+GP2fYAIMJxEKUBFnLNSXWlgr9kPQIfo=",
+        "lastModified": 1788112378,
+        "narHash": "sha256-U7t4F+dJTxlzfxGZKDndxb27HA+b5+2V5NUi1viq+xM=",
         "owner": "jgus",
         "repo": "sqlite-vec-flake",
-        "rev": "7096f0c98af73929f1a2e4bf762da5dca226fdcc",
+        "rev": "7782a55e4cb19c8c59951d25f9a62c010cba8ab2",
         "type": "github"
       },
       "original": {
