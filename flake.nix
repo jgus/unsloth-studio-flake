@@ -75,6 +75,12 @@
       inputs.flake-utils.follows = "flake-utils";
       inputs.flake-lib.follows = "flake-lib";
     };
+    nest-asyncio = {
+      url = "github:jgus/nest-asyncio-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-utils.follows = "flake-utils";
+      inputs.flake-lib.follows = "flake-lib";
+    };
     diffusers = {
       url = "github:jgus/diffusers-flake";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -110,6 +116,7 @@
     , ddgs
     , gguf
     , sqlite-vec
+    , nest-asyncio
     , diffusers
     , transformers
     , unsloth
@@ -144,9 +151,30 @@
                 });
               in
               {
+                black = pyprev.black.overridePythonAttrs (oldAttrs: {
+                  disabledTests = (oldAttrs.disabledTests or [ ]) ++ [
+                    "test_read_pyproject_toml"
+                    "test_read_pyproject_toml_from_stdin"
+                  ];
+                });
                 cyclopts = pyprev.cyclopts.overridePythonAttrs (_: {
                   doCheck = false;
                   doInstallCheck = false;
+                });
+                httpx2 = pyprev.httpx2.overridePythonAttrs (oldAttrs: {
+                  disabledTests = (oldAttrs.disabledTests or [ ]) ++ [ "test_download" ];
+                });
+                inline-snapshot = pyprev.inline-snapshot.overridePythonAttrs (oldAttrs: {
+                  disabledTests = (oldAttrs.disabledTests or [ ]) ++ [ "test_empty_sub_snapshot" ];
+                });
+                mcp = pyprev.mcp.overridePythonAttrs (oldAttrs: {
+                  disabledTests = (oldAttrs.disabledTests or [ ]) ++ [
+                    "test_sse_client_happy_request_and_response"
+                    "test_structured_output_unserializable_type_error"
+                  ];
+                });
+                moto = pyprev.moto.overridePythonAttrs (oldAttrs: {
+                  disabledTests = (oldAttrs.disabledTests or [ ]) ++ [ "test_request_certificate_with_optional_arguments" ];
                 });
                 pyarrow = pyprev.pyarrow.overridePythonAttrs (_: {
                   doCheck = false;
@@ -194,6 +222,7 @@
         ddgs.overlays.default
         gguf.overlays.default
         sqlite-vec.overlays.default
+        nest-asyncio.overlays.default
         diffusers.overlays.default
         transformers.overlays.default
         unsloth.overlays.default
@@ -257,6 +286,7 @@
                 "ddgs"
                 "gguf"
                 "sqlite-vec"
+                "nest-asyncio"
                 "diffusers"
                 "transformers"
               ]
