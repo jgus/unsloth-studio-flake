@@ -14,6 +14,7 @@
     "ddgs" = "v9.14.4";
     "gguf" = "v0.19.0";
     "sqlite-vec" = "v0.1.9";
+    "nest-asyncio" = "v1.6.0";
     "diffusers" = "main";
     "transformers" = "v5.5.0";
     "matplotlib" = "v3.10.9";

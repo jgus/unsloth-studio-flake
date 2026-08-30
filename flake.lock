@@ -198,6 +198,32 @@
         "type": "github"
       }
     },
+    "nest-asyncio": {
+      "inputs": {
+        "flake-lib": [
+          "flake-lib"
+        ],
+        "flake-utils": [
+          "flake-utils"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1788107845,
+        "narHash": "sha256-WJxRtH+rl3kMdXbtIvPbY22sKh9uulka3x+KUDO+GjI=",
+        "owner": "jgus",
+        "repo": "nest-asyncio-flake",
+        "rev": "7eb9af9cf4d9273d69d3ad47230ada0bfe6b9d78",
+        "type": "github"
+      },
+      "original": {
+        "owner": "jgus",
+        "repo": "nest-asyncio-flake",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1787964612,
@@ -332,6 +358,7 @@
         "flake-utils": "flake-utils",
         "gguf": "gguf",
         "matplotlib": "matplotlib",
+        "nest-asyncio": "nest-asyncio",
         "nixpkgs": "nixpkgs",
         "packaging": "packaging",
         "pandas": "pandas",
