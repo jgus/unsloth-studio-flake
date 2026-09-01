@@ -142,7 +142,7 @@
           pythonPackagesExtensions = prev.pythonPackagesExtensions ++ [
             (pyfinal: pyprev:
               let
-                packagingInput = packaging.packages.${final.system}.packaging;
+                packagingInput = packaging.packages.${final.stdenv.hostPlatform.system}.packaging;
                 packagingForPython = final.lib.hiPrio (pyfinal.buildPythonPackage {
                   inherit (packagingInput) pname version src;
                   pyproject = true;
